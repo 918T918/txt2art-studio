@@ -6,7 +6,7 @@ LINK_TARGET_DIR="/usr/local/bin"
 
 if [ "$EUID" -ne 0 ]; then
   echo "Error: This script requires root privileges to create a system-wide command."
-  echo "Please run it using sudo: sudo ./setup_command.sh"
+  echo "Please run it using sudo: sudo ./txt2art_setup.sh"
   exit 1
 fi
 

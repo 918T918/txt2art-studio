@@ -2,18 +2,16 @@
 
 A simple cross-platform GUI application to generate ASCII art from text using various fonts, powered by `pyfiglet`.
 
-
-
-
 ## Features
 
 * Generate ASCII art from text input.
 * Choose from a wide variety of available `pyfiglet` fonts.
 * Adjust the output width.
 * Real-time preview updates as you type or change settings.
-* Copy generated art to the clipboard.
+* Copy generated art to the clipboard (with code formatting options).
 * Save generated art to a text file.
 * Clear input/output areas easily.
+* Light/Dark theme toggle.
 * Cross-platform (tested on Linux, should work on Windows and macOS).
 
 ## Installation
@@ -34,28 +32,28 @@ A simple cross-platform GUI application to generate ASCII art from text using va
     pip install pyfiglet
     ```
 
-3.  **Get the Code:** Clone or download the `txt2art_studio.py` script from this repository.
+3.  **Get the Code:** Clone this repository to download the main application script (`txt2art.py`) and the optional setup script (`txt2art_setup.sh`):
     ```bash
     git clone [https://github.com/918T918/txt2art-studio.git](https://github.com/918T918/txt2art-studio.git)
-    
+    # Replace 918T918/txt2art-studio if your repo name is different
     cd txt2art-studio
     ```
 
 ## Usage (Running the GUI)
 
-Navigate to the directory where you saved `txt2art_studio.py` in your terminal or command prompt and run the script using Python 3:
+Navigate to the directory where you cloned the repository in your terminal or command prompt and run the main script using Python 3:
 
 ```bash
 # Linux/macOS/WSL
-python3 txt2art_studio.py
+python3 txt2art.py
 
 # Windows (native)
-python txt2art_studio.py
+python txt2art.py
 # or sometimes just:
-# py txt2art_studio.py
-This will launch the graphical user interface. Enter text, select a font, adjust the width, and the ASCII art will appear in the result area. Use the buttons to copy, save, or clear the output.
+# py txt2art.py
+This will launch the graphical user interface. Enter text, select a font, adjust the width, and the ASCII art will appear in the result area. Use the buttons to copy, save, or clear the output. Use the theme button at the bottom to toggle light/dark mode. Use the "Copy Format" dropdown to select how the art should be formatted when copied to the clipboard.
 
-**Notes for WSL (Windows Subsystem for Linux) Users**
+Notes for WSL (Windows Subsystem for Linux) Users
 Running GUI applications like Txt2Art Studio from within WSL requires some setup to display the window on your Windows desktop.
 
 WSL2 on Windows 11: This typically works out-of-the-box thanks to WSLg, which automatically handles GUI applications. You usually don't need any extra configuration.
@@ -65,30 +63,27 @@ Bash
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 # Run this in your WSL terminal *before* running the python script
 (Refer to documentation for your specific X Server and WSL version for detailed setup).
-Once the display is configured (or if using WSLg), the installation (pip3 install pyfiglet) and running (python3 txt2art_studio.py) commands within WSL are the same as for standard Linux.
+Once the display is configured (or if using WSLg), the installation (pip3 install pyfiglet) and running (python3 txt2art.py) commands within WSL are the same as for standard Linux.
 
 Optional: System-Wide Command (Linux/macOS/WSL)
-If you want to run the GUI from anywhere in your terminal just by typing txt2art, follow these steps:
+If you want to run the GUI from anywhere in your terminal just by typing txt2art, you can use the provided setup script:
 
-Navigate to the script's directory: Open your terminal and cd into the folder containing txt2art_studio.py.
-
-Bash
-
-# Example: if the script is in the cloned repo directory
-cd path/to/txt2art-studio
-Make the script executable:
+Navigate to the script's directory: Open your terminal and cd into the folder where you cloned the repository (the one containing txt2art.py and txt2art_setup.sh).
 
 Bash
 
-chmod +x txt2art_studio.py
-(Make sure the very first line of the script is #!/usr/bin/env python3)
-
-Create a symbolic link: Link the script (using its current path) to a directory in your system's PATH, like /usr/local/bin. This usually requires administrator privileges (sudo). Run this command from the directory containing the script:
+# Example: if you cloned into your home directory
+cd ~/txt2art-studio
+Make the setup script executable:
 
 Bash
 
-sudo ln -s "$(pwd)/txt2art_studio.py" /usr/local/bin/txt2art
-"$(pwd)/txt2art_studio.py" automatically gets the full path to the script in the current directory.
+chmod +x txt2art_setup.sh
+Run the setup script with sudo: This script will make txt2art.py executable and create the necessary symbolic link in /usr/local/bin.
+
+Bash
+
+sudo ./txt2art_setup.sh
 Run: Now you should be able to open a new terminal window (or type rehash or hash -r in some shells) and simply type:
 
 Bash
@@ -96,9 +91,5 @@ Bash
 txt2art
 to launch the application from anywhere.
 
-One-Liner (Run this from the directory containing the script after making it executable):
-
-Bash
-
-sudo ln -s "$(pwd)/txt2art_studio.py" /usr/local/bin/txt2art
 (Note for Native Windows Users: Creating system-wide commands works differently on Windows. The easiest way is usually to add the script's directory to your system's PATH environment variable or create a shortcut.)
+
