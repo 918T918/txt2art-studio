@@ -43,7 +43,7 @@ A simple cross-platform GUI application to generate ASCII art from text using va
 
 ## Usage (Running the GUI)
 
-Navigate to the directory where you saved `txt2art_studio.py` in your terminal or command prompt and run the script using Python 3:
+Navigate to the directory where you saved `txt2art.py` in your terminal or command prompt and run the script using Python 3:
 
 ```bash
 # Linux/macOS/WSL
@@ -60,7 +60,6 @@ Running GUI applications like Txt2Art Studio from within WSL requires some setup
 
 WSL2 on Windows 11: This typically works out-of-the-box thanks to WSLg, which automatically handles GUI applications. You usually don't need any extra configuration.
 WSL1 or WSL2 on Windows 10: You will likely need to install and run an X Server application on your Windows host (like VcXsrv or X410) and configure the DISPLAY environment variable within your WSL terminal before running the Python script. A common setting is:
-Bash
 
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 # Run this in your WSL terminal *before* running the python script
@@ -72,33 +71,28 @@ If you want to run the GUI from anywhere in your terminal just by typing txt2art
 
 Navigate to the script's directory: Open your terminal and cd into the folder containing txt2art_studio.py.
 
-Bash
 
 # Example: if the script is in the cloned repo directory
 cd path/to/txt2art-studio
 Make the script executable:
 
-Bash
 
 chmod +x txt2art_studio.py
 (Make sure the very first line of the script is #!/usr/bin/env python3)
 
 Create a symbolic link: Link the script (using its current path) to a directory in your system's PATH, like /usr/local/bin. This usually requires administrator privileges (sudo). Run this command from the directory containing the script:
 
-Bash
 
 sudo ln -s "$(pwd)/txt2art_studio.py" /usr/local/bin/txt2art
 "$(pwd)/txt2art_studio.py" automatically gets the full path to the script in the current directory.
 Run: Now you should be able to open a new terminal window (or type rehash or hash -r in some shells) and simply type:
 
-Bash
 
 txt2art
 to launch the application from anywhere.
 
 One-Liner (Run this from the directory containing the script after making it executable):
 
-Bash
 
-sudo ln -s "$(pwd)/txt2art_studio.py" /usr/local/bin/txt2art
+sudo ln -s "$(pwd)/txt2art.py" /usr/local/bin/txt2art
 (Note for Native Windows Users: Creating system-wide commands works differently on Windows. The easiest way is usually to add the script's directory to your system's PATH environment variable or create a shortcut.)
