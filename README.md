@@ -41,6 +41,7 @@ A simple cross-platform GUI application to generate ASCII art from text using va
 
 ## Usage (Running the GUI)
 
+<<<<<<< HEAD
 Navigate to the directory where you cloned the repository in your terminal or command prompt and run the main script using Python 3:
 
 ```bash
@@ -58,7 +59,6 @@ Running GUI applications like Txt2Art Studio from within WSL requires some setup
 
 WSL2 on Windows 11: This typically works out-of-the-box thanks to WSLg, which automatically handles GUI applications. You usually don't need any extra configuration.
 WSL1 or WSL2 on Windows 10: You will likely need to install and run an X Server application on your Windows host (like VcXsrv or X410) and configure the DISPLAY environment variable within your WSL terminal before running the Python script. A common setting is:
-Bash
 
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
 # Run this in your WSL terminal *before* running the python script
@@ -70,26 +70,21 @@ If you want to run the GUI from anywhere in your terminal just by typing txt2art
 
 Navigate to the script's directory: Open your terminal and cd into the folder where you cloned the repository (the one containing txt2art.py and txt2art_setup.sh).
 
-Bash
 
 # Example: if you cloned into your home directory
 cd ~/txt2art-studio
 Make the setup script executable:
 
-Bash
 
 chmod +x txt2art_setup.sh
 Run the setup script with sudo: This script will make txt2art.py executable and create the necessary symbolic link in /usr/local/bin.
 
-Bash
 
 sudo ./txt2art_setup.sh
 Run: Now you should be able to open a new terminal window (or type rehash or hash -r in some shells) and simply type:
 
-Bash
 
 txt2art
 to launch the application from anywhere.
 
-(Note for Native Windows Users: Creating system-wide commands works differently on Windows. The easiest way is usually to add the script's directory to your system's PATH environment variable or create a shortcut.)
-
+<<<<<<< HEAD
